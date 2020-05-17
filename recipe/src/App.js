@@ -21,6 +21,8 @@ const App = ()=> {
   const getRecipes = async ()=> {
     const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
     const data = await response.json();
+
+    console.log(data);
     
     setRecipes(data.hits);
     console.log(data.hits);
@@ -37,8 +39,9 @@ const App = ()=> {
   }
   return(
     <div className="App">
+      <h1 className="app-title">Eat Better</h1>
       <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value= {search} onChange={updateSearch}/>
+        <input className="search-bar" type="text" placeholder="What do you want to eat?" value= {search} onChange={updateSearch}/>
         <button className="search-button" type="submit">Search</button>
       </form>
       <div className="recipes">

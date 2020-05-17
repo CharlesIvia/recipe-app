@@ -41,9 +41,11 @@ const App = ()=> {
         <input className="search-bar" type="text" value= {search} onChange={updateSearch}/>
         <button className="search-button" type="submit">Search</button>
       </form>
-      {recipes.map(recipe =>(
-        <Recipe key={recipe.recipe.label +1} title = {recipe.recipe.label} calories = {recipe.recipe.calories.toFixed(2)} image = {recipe.recipe.image} ingredients={recipe.recipe.ingredients} />
-      ))}
+      <div className="recipes">
+        {recipes.map(recipe =>(
+          <Recipe key={recipe.recipe.label +1} title = {recipe.recipe.label} calories = {recipe.recipe.calories.toFixed(2)} image = {recipe.recipe.image} ingredients={recipe.recipe.ingredients} />
+        ))}
+      </div>
     </div>
   );
 }
